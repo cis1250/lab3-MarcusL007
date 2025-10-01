@@ -8,15 +8,16 @@
 
 while True:
   amount = input()
-  if amount.isDigit() == False or amount <= 0 or isinstance(amount, int) == False:
-    continue
+  if amount.isalpha() == True or int(amount) <= 0:
+    print("Please enter a positive integer.")
   else:
+    fib = "0 1 "
     first = 0
     second = 1
-    print(first)
-    print(second)
     for i in range(int(amount) - 2):
-      print(first + second)
+      fib += str(first + second) + " "
       temp = first + second
       first = second
       second = temp
+    print(fib)
+    break
