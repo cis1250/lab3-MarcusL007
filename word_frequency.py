@@ -35,3 +35,24 @@ while (is_sentence(user_sentence) == False):
     print("This does not meet the criteria for a sentence.")
     user_input = input("Enter a sentence: ")
     
+punctuation = ",.!?"
+
+user_sentence = re.sub(r'[^A-Za-z ]', '', user_sentence)
+
+sentence = user_sentence.split(" ")
+
+words = []
+count = []
+
+for word in sentence:
+    if word not in words:
+        words.append(word.lower())
+        count.append(0)
+for word in sentence:
+    index = words.index(word.lower())
+    count[index] += 1
+
+for i in range(len(words)):
+    print(words[i] + ": " + str(count[i]))
+
+
